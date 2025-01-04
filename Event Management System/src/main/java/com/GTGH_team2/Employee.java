@@ -8,11 +8,10 @@ public class Employee {
 	
 
 	// Constructor
-	public Employee(String name, String surname, String email) {
-		this.name = name;
-		this.surname = surname;
-		this.email = email;
-	}
+	public class Employee extends User {
+	    public Employee(String name, String surname, String email) {
+	        super(name, surname, email);
+	        }
 	
 	public void approveEvent(Event event) {
 	    if (event.getStatus().equals("Pending")) {
