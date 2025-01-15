@@ -165,7 +165,7 @@ public class ApprovalRequestServices {
 	public List<ApprovalRequest> handleRequestToAdd(Integer idApprovalRequest, Integer idEmployee,
 			String updatedStatus) {
 		for (ApprovalRequest approvalRequest : getApprovalRequest()) {
-			if (approvalRequest.getId() == idApprovalRequest) {
+			if (approvalRequest.getId() == idApprovalRequest && approvalRequest.getType().equals("Add")) {
 				Employee employee = employeeServices.getEmployeeById(idEmployee);
 				assignApprovalRequestEmployee(idApprovalRequest, idEmployee);
 				updateApprovalRequestStatus(idApprovalRequest, updatedStatus);
@@ -182,7 +182,7 @@ public class ApprovalRequestServices {
 	}
 
 	private void updateOrganizersEvent(Organizer organizer, Event event) {
-		// organizer.setEvents(event);
+		// organizer.setEvents(event); this should be a list
 	}
 
 	// This method allows the Employee to approve or reject a request to delete an
@@ -190,7 +190,7 @@ public class ApprovalRequestServices {
 	public List<ApprovalRequest> handleRequestToDelete(Integer idApprovalRequest, Integer idEmployee,
 			String updatedStatus) {
 		for (ApprovalRequest approvalRequest : getApprovalRequest()) {
-			if (approvalRequest.getId() == idApprovalRequest) {
+			if (approvalRequest.getId() == idApprovalRequest && approvalRequest.getType().equals("Deletes")) {
 				for (Employee employee : employeeServices.getAllEmployees()) {
 					if (idEmployee == employee.getId()) {
 						assignApprovalRequestEmployee(idApprovalRequest, idEmployee);// maybe not needed QUESTION

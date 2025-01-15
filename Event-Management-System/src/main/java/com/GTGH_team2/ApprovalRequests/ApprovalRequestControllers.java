@@ -32,7 +32,12 @@ public class ApprovalRequestControllers {
 	public List<ApprovalRequest> getAllPendingRequest() {
 		return approvalRequestServices.getAllPendingRequests();
 	}
- 	
+	@GetMapping("/allRequestsOfEmployee")
+	public List<ApprovalRequest> getRequestsOfEmployee(@RequestParam Integer id) {
+		return approvalRequestServices.getRequestsOfEmployee(id);
+	}
+
+
  	@DeleteMapping("/delete")
 	public List<ApprovalRequest> deleteApprovalRequest(@RequestParam Integer id ) {
 		return approvalRequestServices.removeApprovalRequest(id);
