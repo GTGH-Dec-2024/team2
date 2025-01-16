@@ -58,16 +58,16 @@ public class ReservationServices {
 	}
 
 // Get Event Id for a reservation  
-    public Integer reservationsByEvent(Integer idReservation) {
-    	Integer counter = 0;
-        for (Reservation reservation : reservations) {
-            if (reservation.getId().equals(idReservation)) {
-            	counter++;
-               
-            }
-        }
-        return  counter; 
-    }
+	public Integer reservationsByEvent(Integer idEvent) {
+		Integer counter = 0;
+		for (Reservation reservation : reservations) {
+			if (reservation.getEvent().getId() == idEvent) {
+				counter++;
+
+			}
+		}
+		return counter;
+	}
  
 
 	//checking if the visitor has already made a reservation for the event
